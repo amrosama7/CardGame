@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var prevbutt: UIButton!
+    var butt: UIButton!
     var stringo = String()
     var arr = [1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8]
     
@@ -23,6 +24,8 @@ class ViewController: UIViewController {
             
         }else{
             if(sender != prevbutt){
+                if(butt == nil){
+                    butt = sender
             let bit = sender
             sender.setTitle(String(arr[bit.tag]), for: .normal)
             let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
@@ -42,7 +45,9 @@ class ViewController: UIViewController {
                 
                 
                 }
-                self.stringo = String()}}
+                self.stringo = String()
+                self.butt = nil
+                    }}}
         }
     }
     override func viewDidLoad() {
